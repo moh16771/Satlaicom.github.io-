@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satlaicom For Integrated Solutions CO.LTD</title>
+    <meta name="description" content="Satlaicom For Integrated Solutions CO.LTD - Innovative Integrated Solutions For Your Business">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts (Cairo for Arabic & Inter for English) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#00A3E0',
+                            accent: '#0082B3',
+                            navy: '#0B2545',
+                            darkNavy: '#06162B',
+                            lightBg: '#F4F7FA',
+                            cardBg: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Aesthetics CSS -->
+    <style>
+        body {
+            font-family: 'Inter', 'Cairo', sans-serif;
+            background-color: #F4F7FA;
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        /* Hero Banner Particles & Glow Effect */
+        .hero-banner {
+            background: radial-gradient(circle at 50% 20%, rgba(0, 163, 224, 0.25) 0%, rgba(11, 37, 69, 0.95) 70%),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Futuristic Card Glow Shadow */
+        .glow-card {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glow-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px -5px rgba(0, 163, 224, 0.22);
+            border-color: rgba(0, 163, 224, 0.4);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F7FA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00A3E0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0082B3;
+        }
+    </style>
+</head>
+<body class="bg-brand-lightBg text-slate-700 antialiased selection:bg-brand-blue selection:text-white">
+
+    <!-- Sticky Navigation Header -->
+    <header class="glass-nav sticky top-0 z-50 border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-navy to-brand-blue flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        S
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-brand-navy tracking-tight font-inter group-hover:text-brand-blue transition">
+                            Satlaicom
+                        </span>
+                        <span class="text-[9px] font-extrabold text-brand-blue uppercase tracking-widest -mt-1 font-inter">
+                            INTEGRATED SOLUTIONS
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-600" id="desktop-nav">
+                    <a href="#home" class="hover:text-brand-blue transition-colors text-brand-blue" data-key="nav_home">Home</a>
+                    <a href="#about" class="hover:text-brand-blue transition-colors" data-key="nav_about">About Us</a>
+                    <a href="#services" class="hover:text-brand-blue transition-colors" data-key="nav_services">Services</a>
+                    <a href="#contact" class="hover:text-brand-blue transition-colors" data-key="nav_contact">Contact</a>
+                </nav>
+
+                <!-- Actions Header (Language Toggle & CTA) -->
+                <div class="flex items-center gap-4">
+                    <!-- Language Switcher Button -->
+                    <button onclick="toggleLanguage()" id="lang-toggle-btn" class="px-4 py-2 rounded-full border border-brand-blue/30 text-brand-blue text-xs font-bold hover:bg-brand-blue hover:text-white transition-all shadow-sm hover:shadow flex items-center gap-2">
+                        <i class="fa-solid fa-globe text-sm"></i>
+                        <span id="lang-btn-text">عربي</span>
+                    </button>
+
+                    <!-- Contact Us CTA -->
+                    <a href="#contact" class="hidden sm:inline-block px-6 py-2.5 rounded-full bg-brand-blue hover:bg-brand-accent text-white text-xs font-bold transition shadow-md hover:shadow-lg hover:scale-105 transform" data-key="btn_contact_header">
+                        Get In Touch
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden text-brand-navy hover:text-brand-blue p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 font-medium text-sm shadow-xl">
+            <a href="#home" class="block py-2 text-brand-blue font-bold" data-key="nav_home">Home</a>
+            <a href="#about" class="block py-2 text-slate-600 hover:text-brand-blue" data-key="nav_about">About Us</a>
+            <a href="#services" class="block py-2 text-slate-600 hover:text-brand-blue" data-key="nav_services">Services</a>
+            <a href="#contact" class="block py-2 text-slate-600 hover:text-brand-blue" data-key="nav_contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-banner min-h-[580px] flex items-center justify-center text-center text-white px-4 py-24 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto space-y-8 z-10">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-blue/20 border border-brand-blue/40 text-brand-blue text-xs font-extrabold uppercase tracking-widest backdrop-blur-md" data-key="hero_badge">
+                Next-Gen IT & Telecom Services
+            </div>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight drop-shadow-md" data-key="hero_title">
+                Innovative Integrated Solutions For Your Business
+            </h1>
+            <div class="w-16 h-1 bg-gradient-to-r from-brand-blue to-cyan-300 mx-auto rounded-full shadow-sm"></div>
+            <p class="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow" data-key="hero_subtitle">
+                We provide cutting-edge technology and tailored integrated services to drive your business success forward.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto px-9 py-4 rounded-full bg-brand-blue hover:bg-brand-accent text-white font-bold text-sm shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1" data-key="hero_cta">
+                    Get In Touch
+                </a>
+                <a href="#services" class="w-full sm:w-auto px-9 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-sm backdrop-blur-md transition transform hover:-translate-y-1" data-key="hero_cta_sec">
+                    Explore Solutions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Our Company Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight" data-key="about_title">
+                About Our Company
+            </h2>
+            <div class="w-16 h-1 bg-brand-blue mx-auto rounded-full"></div>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto font-normal pt-2" data-key="about_desc">
+                <strong class="text-brand-navy font-bold">Satlaicom For Integrated Solutions CO.LTD</strong> is a leading professional company dedicated to delivering high-quality, comprehensive integrated solutions designed to meet the dynamic needs of modern infrastructure and enterprises.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Services & Solutions Section -->
+    <section id="services" class="py-24 bg-brand-lightBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center space-y-4 mb-20">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight" data-key="services_title">
+                    Our Services & Solutions
+                </h2>
+                <div class="w-16 h-1 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+
+            <!-- 4 Main Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1: CCTV & Security Systems -->
+                <div class="bg-white p-8 rounded-3xl glow-card text-center flex flex-col items-center space-y-5 border border-slate-100 relative group">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue text-3xl group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-navy pt-2" data-key="srv1_title">CCTV & Security Systems</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed" data-key="srv1_desc">
+                        Advanced surveillance setups, access control, and smart security monitoring systems to secure your organization.
+                    </p>
+                </div>
+
+                <!-- Service 2: Networking & Infrastructure -->
+                <div class="bg-white p-8 rounded-3xl glow-card text-center flex flex-col items-center space-y-5 border border-slate-100 relative group">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue text-3xl group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-sitemap"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-navy pt-2" data-key="srv2_title">Networking & Infrastructure</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed" data-key="srv2_desc">
+                        Designing, implementing, and securing robust, high-speed network environments for seamless operations.
+                    </p>
+                </div>
+
+                <!-- Service 3: IT Support & Managed Services -->
+                <div class="bg-white p-8 rounded-3xl glow-card text-center flex flex-col items-center space-y-5 border border-slate-100 relative group">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue text-3xl group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-navy pt-2" data-key="srv3_title">IT Support & Managed Services</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed" data-key="srv3_desc">
+                        Providing full technical support, routine maintenance, and expert IT consulting to ensure zero business downtime.
+                    </p>
+                </div>
+
+                <!-- Service 4: Smart Business Solutions -->
+                <div class="bg-white p-8 rounded-3xl glow-card text-center flex flex-col items-center space-y-5 border border-slate-100 relative group">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue text-3xl group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-navy pt-2" data-key="srv4_title">Smart Business Solutions</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed" data-key="srv4_desc">
+                        Custom software deployment, workflow automation tools, and integrated digital technologies to scale efficiency.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
+            
+            <div class="space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight" data-key="contact_title">
+                    Contact Us
+                </h2>
+                <div class="w-16 h-1 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Management Details -->
+            <div class="bg-brand-lightBg p-6 rounded-2xl inline-block border border-slate-100 shadow-sm">
+                <p class="text-base font-semibold text-slate-700">
+                    <span data-key="managed_by">Managed by:</span> <strong class="text-brand-navy font-bold">Hamid Ibrahim Hussein</strong> <span class="text-slate-500 text-sm font-normal" data-key="general_manager">(General Manager)</span>
+                </p>
+            </div>
+
+            <!-- Contact Information Row -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-8 text-base text-slate-600 font-semibold pt-2">
+                <a href="tel:+249912200250" class="flex items-center gap-3 hover:text-brand-blue transition group bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:shadow-md" dir="ltr">
+                    <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <span>+249 912200250 | +249 117704847</span>
+                </a>
+                
+                <a href="mailto:satlicom2020@gmail.com" class="flex items-center gap-3 hover:text-brand-blue transition group bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:shadow-md" dir="ltr">
+                    <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <span>satlicom2020@gmail.com</span>
+                </a>
+            </div>
+
+            <!-- Quick Direct Message Form -->
+            <div class="mt-12 max-w-lg mx-auto bg-brand-lightBg p-8 rounded-3xl border border-slate-200/80 text-start shadow-sm">
+                <form id="quick-contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <input type="text" required id="input_name" placeholder="Your Name" class="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition">
+                    </div>
+                    <div>
+                        <input type="text" required id="input_contact" placeholder="Your Email / Phone" class="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition">
+                    </div>
+                    <div>
+                        <textarea rows="3" required id="input_msg" placeholder="Your Message" class="w-full px-5 py-3.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-brand-blue hover:bg-brand-accent text-white font-bold text-sm transition shadow-md hover:shadow-lg" data-key="btn_send">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darkNavy py-8 text-center text-xs text-slate-400 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-medium" data-key="footer_copyright">
+                © 2026 Satlaicom For Integrated Solutions. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Multilingual Logic -->
+    <script>
+        // Full AR/EN Dictionary
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_services: "Services",
+                nav_contact: "Contact",
+                btn_contact_header: "Get In Touch",
+                hero_badge: "Next-Gen IT & Telecom Services",
+                hero_title: "Innovative Integrated Solutions For Your Business",
+                hero_subtitle: "We provide cutting-edge technology and tailored integrated services to drive your business success forward.",
+                hero_cta: "Get In Touch",
+                hero_cta_sec: "Explore Solutions",
+                about_title: "About Our Company",
+                about_desc: "Satlaicom For Integrated Solutions CO.LTD is a leading professional company dedicated to delivering high-quality, comprehensive integrated solutions designed to meet the dynamic needs of modern infrastructure and enterprises.",
+                services_title: "Our Services & Solutions",
+                srv1_title: "CCTV & Security Systems",
+                srv1_desc: "Advanced surveillance setups, access control, and smart security monitoring systems to secure your organization.",
+                srv2_title: "Networking & Infrastructure",
+                srv2_desc: "Designing, implementing, and securing robust, high-speed network environments for seamless operations.",
+                srv3_title: "IT Support & Managed Services",
+                srv3_desc: "Providing full technical support, routine maintenance, and expert IT consulting to ensure zero business downtime.",
+                srv4_title: "Smart Business Solutions",
+                srv4_desc: "Custom software deployment, workflow automation tools, and integrated digital technologies to scale efficiency.",
+                contact_title: "Contact Us",
+                managed_by: "Managed by:",
+                general_manager: "(General Manager)",
+                btn_send: "Send Message",
+                footer_copyright: "© 2026 Satlaicom For Integrated Solutions. All Rights Reserved.",
+                lang_btn: "عربي",
+                placeholder_name: "Your Name",
+                placeholder_contact: "Your Email or Phone",
+                placeholder_msg: "Your Message"
+            },
+            ar: {
+                nav_home: "الرئيسية",
+                nav_about: "عن الشركة",
+                nav_services: "خدماتنا",
+                nav_contact: "اتصل بنا",
+                btn_contact_header: "تواصل معنا",
+                hero_badge: "خدمات الاتصالات وتقنية المعلومات الحديثة",
+                hero_title: "حلول متكاملة ومبتكرة لنمو أعمالك",
+                hero_subtitle: "نقدم أحدث التقنيات والخدمات المتكاملة المخصصة لدفع نجاح أعمالك نحو الأمام.",
+                hero_cta: "تواصل معنا الآن",
+                hero_cta_sec: "استكشف خدماتنا",
+                about_title: "عن الشركة",
+                about_desc: "شركة ساتلاكوم للحلول المتكاملة المحدودة (Satlaicom CO.LTD) هي شركة احترافية رائدة متخصصة في تقديم حلول متكاملة عالية الجودة ومصممة لتلبية الاحتياجات المتطورة للبنية التحتية والمؤسسات الحديثة.",
+                services_title: "خدماتنا وحلولنا",
+                srv1_title: "أنظمة الكاميرات والأمن",
+                srv1_desc: "تركيبات مراقبة متقدمة، أنظمة التحكم بالدخول، ومنظومات مراقبة أمنية ذكية لحماية مؤسستك.",
+                srv2_title: "الشبكات والبنية التحتية",
+                srv2_desc: "تصميم وتنفيذ وتأمين بيئات شبكية عالية السرعة واعتمادية لضمان استمرارية العمليات.",
+                srv3_title: "الدعم الفني والخدمات المدارية",
+                srv3_desc: "تقديم دعم فني كامل، صيانة دورية، واستشارات تقنية متخصصة لضمان عدم توقف الأعمال.",
+                srv4_title: "الحلول الذكية للأعمال",
+                srv4_desc: "نشر البرمجيات المخصصة، أدوات أتمتة خطوط العمل، والتقنيات الرقمية المتكاملة لزيادة الكفاءة.",
+                contact_title: "اتصل بنا",
+                managed_by: "الإدارة بواسطة:",
+                general_manager: "(المدير العام)",
+                btn_send: "إرسال الرسالة",
+                footer_copyright: "© 2026 ساتلاكوم للحلول المتكاملة. جميع الحقوق محفوظة.",
+                lang_btn: "English",
+                placeholder_name: "الاسم الكامل",
+                placeholder_contact: "البريد الإلكتروني أو رقم الهاتف",
+                placeholder_msg: "تفاصيل الرسالة"
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Toggle Language Function
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+
+            if (currentLang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                html.classList.add('font-cairo');
+                html.classList.remove('font-inter');
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                html.classList.add('font-inter');
+                html.classList.remove('font-cairo');
+            }
+
+            // Update text elements with data-key attribute
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    elem.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Update Language Toggle Button Text
+            document.getElementById('lang-btn-text').textContent = translations[currentLang].lang_btn;
+
+            // Update Form Input Placeholders
+            document.getElementById('input_name').placeholder = translations[currentLang].placeholder_name;
+            document.getElementById('input_contact').placeholder = translations[currentLang].placeholder_contact;
+            document.getElementById('input_msg').placeholder = translations[currentLang].placeholder_msg;
+        }
+
+        // Mobile Menu Drawer Handler
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Contact Form Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const msg = currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح! سيتواصل معك فريقنا قريباً.' : 'Thank you! Your message has been sent successfully.';
+            alert(msg);
+            document.getElementById('quick-contact-form').reset();
+        }
+    </script>
+</body>
+</html>
